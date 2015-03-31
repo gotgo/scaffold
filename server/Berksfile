@@ -1,0 +1,3 @@
+source "https://supermarket.chef.io"
+
+cookbook 'go-service', '~> 0.1.1', github: 'gotchef/go-service'
