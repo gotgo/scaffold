@@ -3,6 +3,9 @@ package main
 // The commit hash that was compiled. This will be filled in by the compiler.
 var CommitHash string
 
+// The date of the build
+var BuildDate string
+
 // The main version number that is being run at the moment.
 const Version = "0.1.0"
 

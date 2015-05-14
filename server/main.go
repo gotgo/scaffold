@@ -22,7 +22,6 @@ func main() {
 func run(start, stop func()) {
 	term := make(chan os.Signal)
 	signal.Notify(term, syscall.SIGINT)
-	signal.Notify(term, syscall.SIGKILL)
 	unhandled := make(chan struct{})
 
 	var wg sync.WaitGroup
@@ -30,10 +29,6 @@ func run(start, stop func()) {
 		wg.Add(1)
 		defer func() {
 			wg.Done()
-			if r := recover(); r != nil {
-				//logger.HadPanic("Server Shutting down on panic", r)
-				close(unhandled)
-			}
 		}()
 		//logger.Inform("Running!")
 		start()
